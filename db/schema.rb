@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220130515) do
+ActiveRecord::Schema.define(version: 20131220130957) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text"
   end
 
   create_table "assessments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   create_table "completeds", force: true do |t|
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 20131220130515) do
   create_table "questions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "text"
   end
 
   create_table "schools", force: true do |t|
@@ -81,6 +84,7 @@ ActiveRecord::Schema.define(version: 20131220130515) do
   create_table "students", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "teachers", force: true do |t|
