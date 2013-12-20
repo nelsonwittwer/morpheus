@@ -1,11 +1,10 @@
-class Completed < ActiveRecord::Base
+class CompletedAssessment < ActiveRecord::Base
   include Neoid::Relationship
 
   ##
   # Associations
   #
   belongs_to :assessment
-  # TODO - make polymorphic
   belongs_to :student
 
   ##
@@ -13,6 +12,6 @@ class Completed < ActiveRecord::Base
   #
 
   neoidable do |c|
-    c.relationship(:start_node => :student, :end_node => :assessment, :type => :completed)
+    c.relationship(:start_node => :student, :end_node => :assessment, :type => :completed_assessment)
   end
 end

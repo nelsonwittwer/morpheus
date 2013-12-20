@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20131220132857) do
 
   add_index "assessments", ["student_id"], name: "index_assessments_on_student_id"
 
-  create_table "completeds", force: true do |t|
+  create_table "completed_assesments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
