@@ -5,6 +5,7 @@ class Assessment < ActiveRecord::Base
   # Associations
   #
   has_many :questions
+  belongs_to :student
 
   ##
   # Neoid Conversion
