@@ -11,19 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220130957) do
+ActiveRecord::Schema.define(version: 20131220132857) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "text"
+    t.integer  "question_id"
   end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "assessments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.integer  "student_id"
   end
+
+  add_index "assessments", ["student_id"], name: "index_assessments_on_student_id"
 
   create_table "completeds", force: true do |t|
     t.datetime "created_at"
@@ -69,7 +75,10 @@ ActiveRecord::Schema.define(version: 20131220130957) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "text"
+    t.integer  "assessment_id"
   end
+
+  add_index "questions", ["assessment_id"], name: "index_questions_on_assessment_id"
 
   create_table "schools", force: true do |t|
     t.datetime "created_at"
