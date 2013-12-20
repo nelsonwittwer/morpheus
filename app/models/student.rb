@@ -11,6 +11,5 @@ class Student < ActiveRecord::Base
   #
   neoidable do |c|
     c.field :name
-    c.field :birthdate
   end
 end
