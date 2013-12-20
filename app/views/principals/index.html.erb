@@ -1,0 +1,25 @@
+<h1>Listing principals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @principals.each do |principal| %>
+      <tr>
+        <td><%= link_to 'Show', principal %></td>
+        <td><%= link_to 'Edit', edit_principal_path(principal) %></td>
+        <td><%= link_to 'Destroy', principal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Principal', new_principal_path %>

@@ -1,0 +1,2 @@
+module InstructionalCoachesHelper
+end

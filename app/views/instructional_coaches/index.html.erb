@@ -1,0 +1,25 @@
+<h1>Listing instructional_coaches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructional_coaches.each do |instructional_coach| %>
+      <tr>
+        <td><%= link_to 'Show', instructional_coach %></td>
+        <td><%= link_to 'Edit', edit_instructional_coach_path(instructional_coach) %></td>
+        <td><%= link_to 'Destroy', instructional_coach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Instructional coach', new_instructional_coach_path %>
