@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220132857) do
+ActiveRecord::Schema.define(version: 20131220135233) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -31,10 +31,15 @@ ActiveRecord::Schema.define(version: 20131220132857) do
 
   add_index "assessments", ["student_id"], name: "index_assessments_on_student_id"
 
-  create_table "completed_assesments", force: true do |t|
+  create_table "completed_assessments", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "student_id"
+    t.integer  "assessment_id"
   end
+
+  add_index "completed_assessments", ["assessment_id"], name: "index_completed_assessments_on_assessment_id"
+  add_index "completed_assessments", ["student_id"], name: "index_completed_assessments_on_student_id"
 
   create_table "courses", force: true do |t|
     t.datetime "created_at"

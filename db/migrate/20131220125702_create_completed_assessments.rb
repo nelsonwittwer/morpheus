@@ -1,6 +1,6 @@
 class CreateCompletedAssessments < ActiveRecord::Migration
   def change
-    create_table :completed_assesments do |t|
+    create_table :completed_assessments do |t|
 
       t.timestamps
     end
