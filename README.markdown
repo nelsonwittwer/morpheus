@@ -21,8 +21,11 @@ jim.assessments << Assessment.create
 jim.neo_node                # => #<Neography::Node…>
 jim.neo_node.name           # => "jim"
 
-rel = jim.completed.first.neo_relationship
-rel.start_node  # user.neo_node
-rel.end_node    # user.assessment.first.neo_node
-rel.rel_type    # 'completed'
+rel = jim.completed_assessments.first.neo_relationship
+rel.start_node  #  => #<Neography::Node ar_id=1, neoid_unique_id="Student:1", name="Jim", ar_type="Student"> 
+rel.end_node    #  => #<Neography::Node ar_id=1,neoid_unique_id="Assessment:1", ar_type="Assessment">
+rel.rel_type    #  => "completed_assessments"
 ```
+
+## What is Working Currently
+Students, Assessment, and the connection between the two.
