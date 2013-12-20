@@ -12,6 +12,6 @@ class CompletedAssessment < ActiveRecord::Base
   #
 
   neoidable do |c|
-    c.relationship(:start_node => :student, :end_node => :assessment, :type => :completed_assessment)
+    c.relationship(:start_node => :student, :end_node => :assessment, :type => :completed_assessments)
   end
 end
