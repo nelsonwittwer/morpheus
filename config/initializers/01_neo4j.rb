@@ -16,9 +16,9 @@ Neography.configure do |c|
   end
 end
 
-Neoid.db = $neo
+Lexster.db = $neo
 
-Neoid.configure do |c|
-  # should Neoid create sub-reference from the ref node (id#0) to every node-model? default: true
+Lexster.configure do |c|
+  # should Lexster create sub-reference from the ref node (id#0) to every node-model? default: true
   c.enable_subrefs = true
 end

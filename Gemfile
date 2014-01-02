@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
 
 ##
-# Nejo4j Gems
+# Graph DB Gems
 #
-gem 'neoid', '~> 0.1.1'
+gem 'lexster', '~> 0.0.1'
+gem 'rexpro'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'

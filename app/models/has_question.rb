@@ -1,5 +1,5 @@
 class HasQuestion < ActiveRecord::Base
-  include Neoid::Relationship
+  include Lexster::Relationship
 
   ##
   # Associations
@@ -8,10 +8,10 @@ class HasQuestion < ActiveRecord::Base
   belongs_to :question
 
   ##
-  # Neoid Conversion
+  # Lexster Conversion
   #
 
-  neoidable do |c|
+  lexsterable do |c|
     c.relationship(:start_node => :assessment, :end_node => :question, :type => :has_answer)
   end
 end

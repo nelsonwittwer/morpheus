@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-  include Neoid::Node
+  include Lexster::Node
 
   ##
   # Associations
@@ -8,9 +8,9 @@ class Student < ActiveRecord::Base
   has_many :completed_assessments
 
   ##
-  # Neoid Conversion
+  # Lexster Conversion
   #
-  neoidable do |c|
+  lexsterable do |c|
     c.field :name
   end
 end

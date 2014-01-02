@@ -1,5 +1,5 @@
-class Question < ActiveRecord::Base
-  include Neoid::Node
+{class Question < ActiveRecord::Base
+  include Lexster::Node
 
   ##
   # Associations
@@ -8,9 +8,9 @@ class Question < ActiveRecord::Base
   has_one :answer
 
   ##
-  # Neoid Conversion
+  # Lexster Conversion
   #
-  neoidable do |c|
+  lexsterable do |c|
     c.field :text
   end
 end

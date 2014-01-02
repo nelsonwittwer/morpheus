@@ -1,5 +1,5 @@
 class CompletedAssessment < ActiveRecord::Base
-  include Neoid::Relationship
+  include Lexster::Relationship
 
   ##
   # Associations
@@ -8,10 +8,10 @@ class CompletedAssessment < ActiveRecord::Base
   belongs_to :student
 
   ##
-  # Neoid Conversion
+  # Lexster Conversion
   #
 
-  neoidable do |c|
+  lexsterable do |c|
     c.relationship(:start_node => :student, :end_node => :assessment, :type => :completed_assessments)
   end
 end

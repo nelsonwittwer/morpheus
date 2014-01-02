@@ -34,9 +34,9 @@ Students, Assessment, and the connection between the two.
 ## What we would need to make this work on TinkerPop Stack
 
 1. We'll need to create our own gem that mimics much of the
-   functionality of the [Neoid](https://github.com/elado/neoid) gem, but
+   functionality of the [Lexster](https://github.com/elado/neoid) gem, but
 is not so coupled to Neo4j.
-2. [Neoid](https://github.com/elado/neoid), the gem that writes to
+2. [Lexster](https://github.com/elado/neoid), the gem that writes to
    neo4j, does so via the
 [Neography](https://github.com/maxdemarzi/neography) gem. We would need
 to to move this functionality to either the Rexpro gem, or mimic the
