@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 20140102142518) do
 
   add_index "checkpoints", ["student_id"], name: "index_checkpoints_on_student_id"
 
-  create_table "completed_assessments", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "student_id"
-    t.integer  "assessment_id"
-  end
-
-  add_index "completed_assessments", ["assessment_id"], name: "index_completed_assessments_on_assessment_id"
-  add_index "completed_assessments", ["student_id"], name: "index_completed_assessments_on_student_id"
-
   create_table "courses", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,10 +70,10 @@ ActiveRecord::Schema.define(version: 20140102142518) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "text"
-    t.integer  "assessment_id"
+    t.integer  "checkpoint_id"
   end
 
-  add_index "questions", ["assessment_id"], name: "index_questions_on_assessment_id"
+  add_index "questions", ["checkpoint_id"], name: "index_questions_on_checkpoint_id"
 
   create_table "schools", force: true do |t|
     t.datetime "created_at"
