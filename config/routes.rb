@@ -1,4 +1,6 @@
 Morpheus::Application.routes.draw do
+  resources :completed_checkpoints
+
   resources :checkpoints
 
   resources :parents

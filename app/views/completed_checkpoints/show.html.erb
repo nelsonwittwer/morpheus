@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Checkpoint:</strong>
+  <%= @completed_checkpoint.checkpoint_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @completed_checkpoint.student_id %>
+</p>
+
+<%= link_to 'Edit', edit_completed_checkpoint_path(@completed_checkpoint) %> |
+<%= link_to 'Back', completed_checkpoints_path %>

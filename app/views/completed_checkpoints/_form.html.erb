@@ -1,0 +1,25 @@
+<%= form_for(@completed_checkpoint) do |f| %>
+  <% if @completed_checkpoint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@completed_checkpoint.errors.count, "error") %> prohibited this completed_checkpoint from being saved:</h2>
+
+      <ul>
+      <% @completed_checkpoint.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :checkpoint_id %><br>
+    <%= f.number_field :checkpoint_id %>
+  </div>
+  <div class="field">
+    <%= f.label :student_id %><br>
+    <%= f.number_field :student_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

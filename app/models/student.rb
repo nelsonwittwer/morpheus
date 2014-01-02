@@ -4,8 +4,8 @@ class Student < ActiveRecord::Base
   ##
   # Associations
   #
-  has_many :assessments, :through => :completed_assessments
-  has_many :completed_assessments
+  has_many :checkpoints, :through => :completed_checkpoints
+  has_many :completed_checkpoints
 
   ##
   # Neoid Conversion
