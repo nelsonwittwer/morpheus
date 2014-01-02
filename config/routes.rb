@@ -1,4 +1,6 @@
 Morpheus::Application.routes.draw do
+  resources :checkpoints
+
   resources :parents
   resources :instructional_coaches
   resources :principals
@@ -9,6 +11,5 @@ Morpheus::Application.routes.draw do
   resources :students
   resources :sections
   resources :answers
-  resources :questions
-  resources :assessments
+  resources :questionsend
 end

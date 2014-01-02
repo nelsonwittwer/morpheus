@@ -1,0 +1,29 @@
+<h1>Listing checkpoints</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Student</th>
+      <th>Type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @checkpoints.each do |checkpoint| %>
+      <tr>
+        <td><%= checkpoint.student_id %></td>
+        <td><%= checkpoint.type %></td>
+        <td><%= link_to 'Show', checkpoint %></td>
+        <td><%= link_to 'Edit', edit_checkpoint_path(checkpoint) %></td>
+        <td><%= link_to 'Destroy', checkpoint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Checkpoint', new_checkpoint_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131220135233) do
+ActiveRecord::Schema.define(version: 20140102142518) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -22,14 +22,14 @@ ActiveRecord::Schema.define(version: 20131220135233) do
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
-  create_table "assessments", force: true do |t|
+  create_table "checkpoints", force: true do |t|
+    t.integer  "student_id"
+    t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "type"
-    t.integer  "student_id"
   end
 
-  add_index "assessments", ["student_id"], name: "index_assessments_on_student_id"
+  add_index "checkpoints", ["student_id"], name: "index_checkpoints_on_student_id"
 
   create_table "completed_assessments", force: true do |t|
     t.datetime "created_at"
