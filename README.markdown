@@ -29,7 +29,8 @@ rel.rel_type    #  => "completed_assessments"
 ```
 
 ## What is Working Currently
-Students, Assessment, and the connection between the two.
+Students, Assessment, and the connection between the two work in the rails console.
+I'll need to modify the controllers to make these work via the views.
 
 ## What we would need to make this work on TinkerPop Stack
 
