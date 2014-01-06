@@ -4,7 +4,7 @@ class HasQuestion < ActiveRecord::Base
   ##
   # Associations
   #
-  belongs_to :assessment
+  belongs_to :checkpoint
   belongs_to :question
 
   ##
@@ -12,6 +12,6 @@ class HasQuestion < ActiveRecord::Base
   #
 
   neoidable do |c|
-    c.relationship(:start_node => :assessment, :end_node => :question, :type => :has_answer)
+    c.relationship(:start_node => :checkpoint, :end_node => :question, :type => :has_answer)
   end
 end

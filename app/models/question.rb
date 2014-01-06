@@ -4,7 +4,7 @@ class Question < ActiveRecord::Base
   ##
   # Associations
   #
-  belongs_to :assessment
+  belongs_to :checkpoint
   has_one :answer
 
   ##
@@ -12,5 +12,9 @@ class Question < ActiveRecord::Base
   #
   neoidable do |c|
     c.field :text
+    c.field :answer_type
+    c.field :name
+    c.field :posistion
+    c.field :language
   end
 end
