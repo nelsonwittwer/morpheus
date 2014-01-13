@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Possible answers set:</strong>
+  <%= @has_answers_set.answers_set_id %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @has_answers_set.question_id %>
+</p>
+
+<%= link_to 'Edit', edit_has_answers_set_path(@has_answers_set) %> |
+<%= link_to 'Back', has_answers_sets_path %>

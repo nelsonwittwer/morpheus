@@ -4,7 +4,8 @@ class Checkpoint < ActiveRecord::Base
   ##
   # Associations
   #
-  has_many :questions
+  has_many :questions, :through => :has_questions
+  has_many :has_questions
   belongs_to :student
 
   ##

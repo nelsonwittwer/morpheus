@@ -1,0 +1,29 @@
+<h1>Listing has_answers_sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Possible answers set</th>
+      <th>Question</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @has_answers_sets.each do |has_answers_set| %>
+      <tr>
+        <td><%= has_answers_set.answers_set_id %></td>
+        <td><%= has_answers_set.question_id %></td>
+        <td><%= link_to 'Show', has_answers_set %></td>
+        <td><%= link_to 'Edit', edit_has_answers_set_path(has_answers_set) %></td>
+        <td><%= link_to 'Destroy', has_answers_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Has possible answers set', new_has_answers_set_path %>

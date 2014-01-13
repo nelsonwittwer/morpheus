@@ -1,0 +1,25 @@
+<h1>Listing parent_questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @parent_questions.each do |parent_question| %>
+      <tr>
+        <td><%= link_to 'Show', parent_question %></td>
+        <td><%= link_to 'Edit', edit_parent_question_path(parent_question) %></td>
+        <td><%= link_to 'Destroy', parent_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Parent question', new_parent_question_path %>

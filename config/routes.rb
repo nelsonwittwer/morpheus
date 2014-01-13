@@ -1,4 +1,10 @@
 Morpheus::Application.routes.draw do
+  resources :has_answers_sets
+
+  resources :parent_questions
+
+  resources :answers_sets
+
   resources :completed_checkpoints
 
   resources :checkpoints

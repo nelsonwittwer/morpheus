@@ -12,6 +12,6 @@ class HasQuestion < ActiveRecord::Base
   #
 
   neoidable do |c|
-    c.relationship(:start_node => :checkpoint, :end_node => :question, :type => :has_answer)
+    c.relationship :start_node => :checkpoint, :end_node => :question, :type => :questions
   end
 end

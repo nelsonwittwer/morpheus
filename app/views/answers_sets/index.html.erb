@@ -1,0 +1,27 @@
+<h1>Listing answers_sets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answers_sets.each do |answers_set| %>
+      <tr>
+        <td><%= answers_set.question_id %></td>
+        <td><%= link_to 'Show', answers_set %></td>
+        <td><%= link_to 'Edit', edit_answers_set_path(answers_set) %></td>
+        <td><%= link_to 'Destroy', answers_set, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Possible answers set', new_answers_set_path %>
