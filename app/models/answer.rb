@@ -10,6 +10,9 @@ class Answer < ActiveRecord::Base
   # Neoid Conversion
   #
   neoidable do |c|
-    c.field :text
+    c.field :english_text
+    c.field :spanish_text
+    c.field :posistion
+    c.field :legacy_response_value
   end
 end
