@@ -12,6 +12,7 @@ describe 'legacy_isq' do
       Rake::Task["legacy_isq:import_csv_surveys"].reenable
       Rake.application.invoke_task "legacy_isq:import_csv_surveys"
     end
+
     let(:question_attributes) {
       {
         :id => 47,
@@ -22,7 +23,7 @@ describe 'legacy_isq' do
         :spanish_text => "Mis padres apoyan las actividades extra-escolares",
       }
     }
-    let(:expected_question) { Quesiton.new(question_attributes) }
+    let(:expected_question) { Question.new(question_attributes) }
     let(:answer_attributes) {
       {
         :id => 135,
