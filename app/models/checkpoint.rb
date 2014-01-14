@@ -12,6 +12,8 @@ class Checkpoint < ActiveRecord::Base
   # Neoid Conversion
   #
   neoidable do |c|
-    c.field :type
+    c.field :title
+    c.field :actor
+    c.field :version
   end
 end

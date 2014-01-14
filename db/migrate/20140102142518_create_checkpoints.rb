@@ -2,7 +2,7 @@ class CreateCheckpoints < ActiveRecord::Migration
   def change
     create_table :checkpoints do |t|
       t.integer :student_id
-      t.integer :type
+      t.integer :title
       t.integer :actor
       t.integer :version
 

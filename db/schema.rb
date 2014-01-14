@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140109150913) do
 
   create_table "checkpoints", force: true do |t|
     t.integer  "student_id"
-    t.integer  "type"
+    t.integer  "title"
     t.integer  "actor"
     t.integer  "version"
     t.datetime "created_at"
