@@ -57,15 +57,20 @@ namespace :legacy_isq do
     Answer.delete_all
 
     all_answers.each do |answer|
-      new_answer = Answer.where(:english_text => answer.english_text, :spanish_text => answer.spanish_text)
-      new_answer = Answer.where(:english_text => answer.english_text) if new_answer.empty?
-      if new_answer.empty?
+      new_answer = Answer.find_by(:english_text => answer.english_text)
+
+      unless new_answer
         Answer.create(:english_text => answer.english_text, :spanish_text => answer.spanish_text)
+      end
+
+      if new_answer && new_answer.spanish_text == nil && answer.spanish_text
+        new_answer.spanish_text = answer.spanish_text
+        new_answer.save
       end
     end
   end
 
-  task :create_anwers_set => :environment do
+  task :create_answers_sets => :environment do
     ##
     # Create possible answer sets and associate questions
     #
@@ -74,6 +79,12 @@ namespace :legacy_isq do
 
       existing_answer = Answer.find_by(:english_text => survey["response_shown"])
       existing_answer = Answer.find_by(:spanish_text => survey["response_shown"]) unless existing_answer
+
+      # TODO There are two spanish answers for the same english answer in some cases
+      puts "!!!" unless existing_answer
+      p survey unless existing_answer
+      next unless existing_answer
+
       existing_question = Question.find_by_id(survey["survey_question_id"])
 
       if existing_answer.try(:answers_set_id)
@@ -82,7 +93,6 @@ namespace :legacy_isq do
         existing_answer.answers_set_id = existing_question.answers_set_id
       else
         existing_answers_set = AnswersSet.create
-        binding.pry unless existing_answer
         existing_answer.answers_set_id = existing_answers_set.id
         existing_question.answers_set_id = existing_answers_set.id
         existing_answer.save
