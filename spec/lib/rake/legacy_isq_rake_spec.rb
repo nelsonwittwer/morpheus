@@ -83,7 +83,7 @@ describe 'legacy_isq' do
     end
   end
 
-  context 'create_answers_sets' do
+  context 'create_graph_associations' do
     let :run_question_import_task do
       Rake::Task["legacy_isq:import_csv_surveys"].reenable
       Rake.application.invoke_task "legacy_isq:import_csv_surveys"
@@ -95,8 +95,8 @@ describe 'legacy_isq' do
     end
 
     let :run_rake_task do
-      Rake::Task["legacy_isq:create_answers_sets"].reenable
-      Rake.application.invoke_task "legacy_isq:create_answers_sets"
+      Rake::Task["legacy_isq:create_graph_associations"].reenable
+      Rake.application.invoke_task "legacy_isq:create_graph_associations"
     end
 
     before do
@@ -107,13 +107,15 @@ describe 'legacy_isq' do
     it 'creates answers sets for each question' do
       run_rake_task
       orphan_questions = Question.where(:answers_set_id => nil)
+      p orphan_questions unless orphan_questions.empty?
       orphan_questions.should be_empty
     end
 
     it 'creates answers sets for each answer' do
       run_rake_task
-      orphan_questions = Answer.where(:answers_set_id => nil)
-      orphan_questions.should be_empty
+      orphan_answers = Answer.where(:answers_set_id => nil)
+      p orphan_answers unless orphan_answers.empty?
+      orphan_answers.should be_empty
     end
   end
 end

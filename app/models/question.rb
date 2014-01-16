@@ -6,8 +6,8 @@ class Question < ActiveRecord::Base
   #
   belongs_to :checkpoint
   has_one :answers_set, :through => :has_answers_set
-  has_one :parent_question
   has_one :has_answers_set
+  has_one :parent_question
 
   ##
   # Neoid Conversion
