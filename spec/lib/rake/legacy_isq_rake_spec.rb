@@ -49,48 +49,36 @@ describe 'legacy_isq' do
       question.should eq(expected_question)
     end
 
-#    it 'creates one answer with both english and spanish texts' do
-#      run_rake_task
-#      answer = Answer.find(135)
-#      answer.should eq(expected_answer)
-#    end
-#
-#    it 'creates one unique checkpoint depending on attributes' do
-#      run_rake_task
-#      checkpoint = Checkpoint.find(39)
-#      checkpoint.should eq(expected_checkpoint)
-#    end
-  end
+    context 'remove_duplicate_answers' do
+      it 'should only have one "Yes" response' do
+        run_rake_task
+        yes_answer = Answer.where(:english_text => "Yes")
+        yes_answer.count.should eq(1)
+        yes_answer.first.spanish_text.should eq("Si")
+      end
 
-  context 'remove_duplicate_answers' do
-    it 'should only have one "Yes" response' do
-      run_rake_task
-      yes_answer = Answer.where(:english_text => "Yes")
-      yes_answer.count.should eq(1)
-      yes_answer.first.spanish_text.should eq("Si")
+      it 'should only have one "No" response' do
+        run_rake_task
+        yes_answer = Answer.where(:english_text => "No")
+        yes_answer.count.should eq(1)
+        yes_answer.first.spanish_text.should eq("No")
+      end
     end
 
-    it 'should only have one "No" response' do
-      run_rake_task
-      yes_answer = Answer.where(:english_text => "No")
-      yes_answer.count.should eq(1)
-      yes_answer.first.spanish_text.should eq("No")
-    end
-  end
+    context 'create_graph_associations' do
+      it 'creates answers sets for each question' do
+        run_rake_task
+        orphan_questions = Question.where(:answers_set_id => nil)
+        p orphan_questions unless orphan_questions.empty?
+        orphan_questions.should be_empty
+      end
 
-  context 'create_graph_associations' do
-    it 'creates answers sets for each question' do
-      run_rake_task
-      orphan_questions = Question.where(:answers_set_id => nil)
-      p orphan_questions unless orphan_questions.empty?
-      orphan_questions.should be_empty
-    end
-
-    it 'creates answers sets for each answer' do
-      run_rake_task
-      orphan_answers = Answer.where(:answers_set_id => nil)
-      p orphan_answers unless orphan_answers.empty?
-      orphan_answers.should be_empty
+      it 'creates answers sets for each answer' do
+        run_rake_task
+        orphan_answers = Answer.where(:answers_set_id => nil)
+        p orphan_answers unless orphan_answers.empty?
+        orphan_answers.should be_empty
+      end
     end
   end
 end

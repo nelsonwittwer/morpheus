@@ -37,12 +37,18 @@ namespace :legacy_isq do
 
       if answer_set_on_answer_but_not_on_question?(existing_answer, existing_question)
         existing_question.answers_set = existing_answer.answers_set
-      elsif answer_set_on_question_but_not_on_answer(existing_answer, existing_question)
+        existing_question.save
+      elsif answer_set_on_question_but_not_on_answer?(existing_answer, existing_question)
         existing_answer.answers_set = existing_question.answers_set
+        existing_answer.save
       else
-        existing_answers_set = AnswersSet.create
-        existing_answers_set.answers << existing_answer
-        existing_question.answers_set = existing_answers_set
+        new_answers_set  = AnswersSet.create
+        new_answers_set.answers << existing_answer
+        existing_answer.answers_set = new_answers_set
+        existing_answer.save
+        existing_question.answers_set = new_answers_set
+        existing_question.save
+        new_answers_set.save
       end
 
       checkpoint = Checkpoint.find(survey["survey_id"])
@@ -96,6 +102,7 @@ namespace :legacy_isq do
     end
 
     def csv_to_array_of_hashes
+      require 'csv'
       file_path = "#{Rails.root}/public/surveys_20140113.csv"
       CSV.read(file_path, :headers => true).collect do |row|
         Hash[row.collect { |c,r| [c,r] }]

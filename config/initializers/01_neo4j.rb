@@ -1,4 +1,3 @@
-# 01_ in the file name is in order to get this file loaded first, before the models (initializers are loaded alphabetically).
 ENV["NEO4J_URL"] ||= "http://localhost:7474"
 
 uri = URI.parse(ENV["NEO4J_URL"])
@@ -20,5 +19,6 @@ Neoid.db = $neo
 
 Neoid.configure do |c|
   # should Neoid create sub-reference from the ref node (id#0) to every node-model? default: true
-  c.enable_subrefs = true
+  #   c.enable_subrefs = true
+  #   end
 end

@@ -35,5 +35,5 @@ Morpheus::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Neo4j Testing
-  ENV["NEO4J_URL"] = 'http://localhost:7574'
+  ENV["NEO4J_URL"] = 'http://localhost:7474'
 end
